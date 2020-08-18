@@ -27,21 +27,17 @@ class Store {
         capital: "Caracas",
       },
     ],
-
-    itemCountry: {
-      country: "Italia",
-      capital: "Roma",
-    },
   };
 
-  addData(data) {
-    items.data.push(data);
+  get maxData() {
+    return this.items.data.length + 1;
   }
 
-  handleItem(e) {
-    let countryCopy = Object.assign({}, items.itemCountry);
-    countryCopy[e.getTarget.name] = e.getTarget.value;
-    items.itemCountry = countryCopy;
+  addData(data) {
+    console.log(1234, data);
+    const dataCopy = Object.assign([], this.items.data);
+    dataCopy.push(data);
+    this.items.data = dataCopy;
   }
 }
 

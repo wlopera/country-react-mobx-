@@ -1,5 +1,6 @@
 import React from "react";
 import BootstrapTable from "react-bootstrap-table-next";
+import { observer } from "mobx-react";
 
 const columns = [
   {
@@ -18,12 +19,12 @@ const columns = [
   },
 ];
 
-const tableCountry = (props) => {
+const tableCountry = ({ store }) => {
   return (
     <div className="container" style={{ marginTop: 50 }}>
-      <BootstrapTable striped hover keyField="id" data={props.data} columns={columns} />
+      <BootstrapTable striped hover keyField="id" data={store.items.data} columns={columns} />
     </div>
   );
 };
 
-export default tableCountry;
+export default observer(tableCountry);
